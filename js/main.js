@@ -1,49 +1,55 @@
 
-//filtro (modelos,Marcas)
-   const producto = [
-      {modelo: "yeezy 700", valor: 300},
-      {modelo: "yeezy 350", valor:240},
-      {modelo: "human race", valor:200},
-      {modelo: "air max 1", valor:73},
-      {modelo: "air force", valor:120},
-      {modelo: "huarache", valor:100},
-      {modelo: "jordan 1 white", valor:125},
-      {modelo: "jordan 4 blue", valor:250},
-      {modelo: "uptempo", valor:88},
-   ]
-   
-   function int(){
-      let producto_final = prompt ("¿Que modelo desea?")
-      //seguir
-      
-   productoselecto = producto.find((producto) => producto.modelo === producto_final)
-   console.log(productoselecto);
-   let sumarIva = productoselecto.valor * 1.21
-   console.log ("Valor + Iva",sumarIva);
-
-   
-   //prueba
-   let cuotas = parseInt (prompt("En cuantas cuotas con interes desea pagar 3 - 6 - 12"))
-   const interes = [
-      {cuota: 3, intereses: 1.15 },
-      {cuota: 6, intereses: 1.35 },
-      {cuota: 12, intereses:  1.55 },
-   ]
-   let ValorFinal = (interes.find((interes) => interes.cuota == cuotas))
-   console.log ("Valor Final (Iva + Interes)",ValorFinal.intereses * sumarIva)
-   let seguir =prompt("desea comprar algo mas?");
-      if(seguir == "si"){
-        int() 
+let productos = [ ]
+let carrito = []
+document.addEventListener("DOMContentLoaded", () => {
+   if (localStorage.getItem("carrito")){
+       carrito = JSON.parse(localStorage.getItem('carrito'))
+       ActualizarCarrito()
    }
-}
-int()
+})
+document.addEventListener("DOMContentLoaded", () => {
+   if (localStorage.getItem("productos")){
+      productos = JSON.parse(localStorage.getItem("productos"))
+       ProductosCargados()
+      }
+   })
 
 
+function VenderProductos(){
+   let Marca_producto = document.getElementById("InputMarca");
+   let Modelo_producto = document.getElementById("InputModelo");
+   let Precio_producto = document.getElementById("InputPrecio");
+   let Talle_producto = document.getElementById("InputTalle");
+   let Estado_producto = document.getElementById("InputEstado");
+   let Img_producto = document.getElementById("InputImg"); 
+
+   let ProductoVenta = {
+      marca:Marca_producto.value,
+      modelo:Modelo_producto.value,
+      precio:Precio_producto.value,
+      talle:Talle_producto.value,
+      estado:Estado_producto.value,
+      img:Img_producto.value,
+      id: Math.random()
+   }
+   productos.push(ProductoVenta);
+   
+   let productos_json = JSON.stringify(productos);
+
+   localStorage.setItem("productos",productos_json);
 
    
+}
 
-    
-//interes x cuotas
-     
-       
+let btn_vender = document.getElementById("btn-vender")
+btn_vender.addEventListener("click", VenderProductos)
+btn_vender.addEventListener("click", ProductosCargados)
+
+const contenedorProductos = document.querySelector("#contenedor-productos");
+const bodycarrito = document.getElementById("carrito-body-modal")
+const total = document.getElementById("total")
+const precioTotal = document.getElementById("precioTotal")
+
+
+
    

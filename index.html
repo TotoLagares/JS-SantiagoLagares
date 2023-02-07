@@ -1,13 +1,122 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="js/main.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 </head>
 <body>
-    
+    <header class=" container">
+        <div class="text-center  my-5">
+            <h1 class=""><a href="#"><img src="https://fontmeme.com/permalink/230203/9ea2c29f5b97a644d08d490542c092e4.png" alt="fuente-kaushan-script" border="0" class="img-logo"></a></h1> 
+        </div>
+        <div class="modalll d-block d-flex col-auto">
+          <div class="container  justify-content-end">
+            <div class="text-end">
+              <button class="snip1582" data-bs-toggle="modal" data-bs-target="#exampleModal2">Vender</button>
+          </div>
+          <div class="modal-dialog modal-dialog-scrollable">
+          </div>
+          <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel2">Modal title</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <main class="container w-50">
+                    <div class="my-2">
+                        <label for="InputMarca">Elija la marca</label>
+                        <select class="form-control" id="InputMarca">
+                            <option value="null">--</option>
+                            <option value="Nike">Nike</option>
+                            <option value="Jordan">Jordan</option>
+                            <option value="Adidas">Adidas</option>
+                            <option value="Yeezy">Yeezy</option>>
+                            <option value="Otro">Otro</option>
+                        </select>
+                      </div> 
+                    <div class="my-2">
+                        <label for="InputModelo" class="form-label">Modelo</label>
+                        <input type="text" id="InputModelo" class="form-control" aria-describedby="modeloHelpBlock">
+                    </div>
+                    <div class="my-2">
+                        <label for="InputPrecio" class="form-label">Precio (USD)</label>
+                        <input type="number" id="InputPrecio" class="form-control">
+                    </div>
+                    <div class="my-2">
+                        <label for="InputTalle" class="form-label">Talle (Us)</label>
+                        <input type="number" id="InputTalle" class="form-control">
+                    </div>
+                    <div class="my-2">
+                        <label for="InputEstado">Estado</label>
+                        <select class="form-control" id="InputEstado">
+                            <option value="null">--</option>
+                            <option value="Nuevo">Nuevo</option>
+                            <option value="Usado">Usado</option>
+                        </select>
+                      </div> 
+                    <div class="mb-2">
+                        <label for="InputImg" class="form-label">Añada una Foto</label>
+                        <input class="form-control" type="url" id="InputImg" aria-describedby="UrlHelpBlock">
+                        <div id="UrlHelpBlock" class="form-text">
+                          Ingrese la URL de la imagen
+                      </div>
+                    </div> 
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                  <button type="button" class="btn btn-primary" id="btn-vender">Vender</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-3">
+          <button type="button" class="snip1582" data-bs-toggle="modal" data-bs-target="#exampleModal" id="btn-carrito">
+            Carrito <span id="total" class="total">0</span>
+         </button>
+        </div>
+
+       <div class="modal-dialog modal-dialog-scrollable"></div>
+       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="modal-dialog">
+           <div class="modal-content">
+             <div class="modal-header">
+               <h5 class="modal-title" id="exampleModalLabel">Carrito</h5>
+               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+             </div>
+             <div class="modal-body carrito-body-modal" id="carrito-body-modal">
+
+
+             </div>
+             <div class="modal-footer">
+               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+               <button type="button" class="btn btn-primary">Compar $<span id="precioTotal">0</span></button>
+             </div> 
+           </div>
+         </div>
+         </div>  
+        </div>
+    </header>
+    <main class="">
+          <div class="container border d-flex  col-12 flex-md-wrap " id="contenedor-productos">
+            
+          </div> 
+
+
+
+    </main>
+    <body>
+    </body>
+    <script src="js/stock.js"></script>
+    <script src="js/Dom.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
