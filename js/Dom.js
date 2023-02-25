@@ -73,7 +73,7 @@ const ActualizarCarrito = () => {
     localStorage.setItem('carrito', JSON.stringify(carrito))
 })
 total.innerText = carrito.length
-precioTotal.innerText = carrito.reduce((acc, productos) => acc + productos.precio, 0)
+precioTotal.innerText = carrito.reduce((acc, productos) => acc + productos.precio)
 }
 //esta parte la google xq no me salia jeje
 const eliminardelcarrito= (prodId) => {
@@ -82,3 +82,18 @@ const eliminardelcarrito= (prodId) => {
   carrito.splice(indice, 1)
   ActualizarCarrito()
 }
+//API DOLAR BLUE
+const footer = document.createElement("footer");
+fetch("https://www.dolarsi.com/api/api.php?type=valoresprincipales")
+  .then(response => response.json())
+  .then(data=>{    
+   document.getElementById("footer").innerHTML = `
+                                <hr>
+                                <div class="text-center">  
+                                <p><i class="bi bi-cash mt-4 fs-1 text-success"></i></p>
+                                <p class="mb-2 p-0 fs-6 text-secondary">Valor Dolar Blue:</p>
+                                <p class="m-0 p-0 fs-6">Compra: <h4 class= "text-danger fs-6">$${data[1].casa.compra}</h4> Venta: <h4 class= "text-danger fs-6">$${data[1].casa.venta} </h4></p><div> 
+    `
+  })
+  
+  

@@ -9,9 +9,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 </head>
 <body>
     <header class=" container">
+       <!--Modal vender-->
         <div class="text-center  my-5">
             <h1 class=""><a href="#"><img src="https://fontmeme.com/permalink/230203/9ea2c29f5b97a644d08d490542c092e4.png" alt="fuente-kaushan-script" border="0" class="img-logo"></a></h1> 
         </div>
@@ -52,7 +55,7 @@
                     </div>
                     <div class="my-2">
                         <label for="InputTalle" class="form-label">Talle (Us)</label>
-                        <input type="number" id="InputTalle" class="form-control">
+                        <input type="number" id="InputTalle" class="form-control" pattern="[0-14]+">
                     </div>
                     <div class="my-2">
                         <label for="InputEstado">Estado</label>
@@ -78,6 +81,7 @@
             </div>
           </div>
         </div>
+        <!--Modal carrito-->
         <div class="col-3">
           <button type="button" class="snip1582" data-bs-toggle="modal" data-bs-target="#exampleModal" id="btn-carrito">
             Carrito <span id="total" class="total">0</span>
@@ -98,12 +102,39 @@
              </div>
              <div class="modal-footer">
                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-               <button type="button" class="btn btn-primary">Compar $<span id="precioTotal">0</span></button>
+               <button type="button" class="btn btn-primary" id="btn-compra">Compar $<span id="precioTotal">0</span></button>
              </div> 
            </div>
          </div>
          </div>  
         </div>
+       <!--Modal login-->
+       <div class="col-3">
+        <button class="snip1582" data-bs-toggle="modal" data-bs-target="#exampleModal3">Log In</button>
+      </div>
+       <div class="modal" tabindex="-1" role="dialog"  id="exampleModal3">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">registrate</h5>
+            </div>
+            <div class="modal-body">
+              <div class="my-2">
+                <label for="InputUsuario" class="form-label">Usuario</label>
+                <input type="text" id="InputUsuario" class="form-control">
+              </div>
+              <div class="my-2">
+                <label for="InputPassword" class="form-label">Contraseña</label>
+                <input type="text" id="InputPassword" class="form-control">
+              </div> 
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-primary" id="btn-login">Ingresar</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </header>
     <main class="">
           <div class="container border d-flex  col-12 flex-md-wrap " id="contenedor-productos">
@@ -113,9 +144,10 @@
 
 
     </main>
-    <body>
-    </body>
-    <script src="js/stock.js"></script>
+    <footer id="footer">
+
+    </footer>
+  </body>
     <script src="js/Dom.js"></script>
     <script src="js/main.js"></script>
 </body>
